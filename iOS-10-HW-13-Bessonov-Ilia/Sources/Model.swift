@@ -36,8 +36,8 @@ extension Settings {
         // Second Cells
         [Settings(icon: UIImage(systemName: "bell.badge.fill")!, name: "Notifications", background: .systemRed, type: .none),
         Settings(icon: UIImage(systemName: "speaker.wave.2.fill")!, name: "Sounds & Haptics", background: .systemRed, type: .none),
-        Settings(icon: UIImage(systemName: "moon.fill")!, name: "Focus", background: .purple, type: .none),
-        Settings(icon: UIImage(systemName: "hourglass")!, name: "Screen Time", background: .purple, type: .none)],
+        Settings(icon: UIImage(systemName: "moon.fill")!, name: "Focus", background: .systemPurple, type: .none),
+        Settings(icon: UIImage(systemName: "hourglass")!, name: "Screen Time", background: .systemPurple, type: .none)],
         // Third Cells
         [Settings(icon: UIImage(systemName: "gear")!, name: "General", background: .systemGray, type: .image),
         Settings(icon: UIImage(systemName: "switch.2")!, name: "Control Centre", background: .systemGray, type: .none),

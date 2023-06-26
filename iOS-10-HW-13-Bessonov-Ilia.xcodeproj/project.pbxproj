@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA5FBBC82A4A2DE3006FE395 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5FBBC72A4A2DE3006FE395 /* DetailViewController.swift */; };
 		FAB4DFB52A4888860099689B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB4DFB42A4888860099689B /* AppDelegate.swift */; };
 		FAB4DFB72A4888860099689B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB4DFB62A4888860099689B /* SceneDelegate.swift */; };
 		FAB4DFB92A4888860099689B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB4DFB82A4888860099689B /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA5FBBC72A4A2DE3006FE395 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FAB4DFB12A4888860099689B /* iOS-10-HW-13-Bessonov-Ilia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-10-HW-13-Bessonov-Ilia.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB4DFB42A4888860099689B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAB4DFB62A4888860099689B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				FAB4DFDB2A49BCE50099689B /* SimpleTableViewCell.swift */,
 				FAB4DFD12A4892F00099689B /* Model.swift */,
 				FAB4DFDD2A49C4E50099689B /* HeaderView.swift */,
+				FA5FBBC72A4A2DE3006FE395 /* DetailViewController.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				FAB4DFD22A4892F00099689B /* Model.swift in Sources */,
 				FAB4DFB92A4888860099689B /* ViewController.swift in Sources */,
 				FAB4DFD42A48AEA60099689B /* InfoIDTableViewCell.swift in Sources */,
+				FA5FBBC82A4A2DE3006FE395 /* DetailViewController.swift in Sources */,
 				FAB4DFDC2A49BCE50099689B /* SimpleTableViewCell.swift in Sources */,
 				FAB4DFDA2A48B02B0099689B /* ImageTableViewCell.swift in Sources */,
 				FAB4DFB52A4888860099689B /* AppDelegate.swift in Sources */,

@@ -124,6 +124,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Нажата ячейка \(Settings.settings[indexPath.section][indexPath.row].name)")
+        let viewController = DetailViewController()
         tableView.deselectRow(at: indexPath, animated: true)
+        viewController.settings = Settings.settings[indexPath.section][indexPath.row]
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
