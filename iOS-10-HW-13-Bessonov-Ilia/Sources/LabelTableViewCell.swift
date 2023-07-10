@@ -7,45 +7,15 @@
 
 import UIKit
 
-class LabelTableViewCell: UITableViewCell {
-
-    var settings: Settings? {
-        didSet {
-            iconImageView.image = settings?.icon
-            nameLabel.text = settings?.name
-            iconImageView.backgroundColor = settings?.background
-            accessoryType = .disclosureIndicator
-        }
-    }
+class LabelTableViewCell: SimpleTableViewCell {
 
     // MARK: - Outlets
-
-    private lazy var iconImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.tintColor = .white
-        imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 5
-        imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-
-    private lazy var nameLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = ""
-        label.textColor = .black
-        label.font = .systemFont(ofSize: 16, weight: .regular)
-        label.textAlignment = .left
-        label.numberOfLines = 1
-        return label
-    }()
 
     private lazy var detailLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Off"
-        label.textColor = .black
+        label.textColor = .systemGray
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textAlignment = .right
@@ -74,19 +44,11 @@ class LabelTableViewCell: UITableViewCell {
     // MARK: - Setup
 
     private func setupHierarchy() {
-        contentView.addSubviews([iconImageView, nameLabel, detailLabel])
+        contentView.addSubview(detailLabel)
     }
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            iconImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 19),
-            iconImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            iconImageView.widthAnchor.constraint(equalToConstant: 27),
-            iconImageView.heightAnchor.constraint(equalToConstant: 27),
-
-            nameLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 15),
-            nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-
             detailLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
             detailLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
