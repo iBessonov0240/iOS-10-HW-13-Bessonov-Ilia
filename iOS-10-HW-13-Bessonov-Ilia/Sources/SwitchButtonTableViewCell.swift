@@ -7,17 +7,11 @@
 
 import UIKit
 
-class SwitchButtonTableViewCell: UITableViewCell {
+class SwitchButtonTableViewCell: SimpleTableViewCell {
 
-    var settings: Settings? {
+    override var settings: Settings? {
         didSet {
-            imageView?.image = settings?.icon
-            textLabel?.text = settings?.name
-            imageView?.backgroundColor = settings?.background
-            imageView?.tintColor = .white
-            imageView?.clipsToBounds = true
-            imageView?.layer.cornerRadius = 5
-            imageView?.contentMode = .scaleAspectFit
+            accessoryType = .none
         }
     }
 

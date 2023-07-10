@@ -7,20 +7,7 @@
 
 import UIKit
 
-class ImageTableViewCell: UITableViewCell {
-
-    var settings: Settings? {
-        didSet {
-            imageView?.image = settings?.icon
-            textLabel?.text = settings?.name
-            accessoryType = .disclosureIndicator
-            imageView?.backgroundColor = settings?.background
-            imageView?.tintColor = .white
-            imageView?.clipsToBounds = true
-            imageView?.layer.cornerRadius = 5
-            imageView?.contentMode = .scaleAspectFit
-        }
-    }
+class ImageTableViewCell: SimpleTableViewCell {
 
     // MARK: - Outlets
 

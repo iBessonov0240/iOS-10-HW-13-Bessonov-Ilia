@@ -32,7 +32,7 @@ extension Settings {
         Settings(icon: UIImage(named: "bluetooth")!, name: "Bluetooth", background: .systemBlue, type: .label),
         Settings(icon: UIImage(systemName: "antenna.radiowaves.left.and.right")!, name: "Mobile Data", background: .systemGreen, type: .none),
         Settings(icon: UIImage(systemName: "personalhotspot")!, name: "Personal Hotspot", background: .systemGreen, type: .label),
-        Settings(icon: UIImage(named: "vpn")!, name: "VPN", background: .systemBlue, type: .label)],
+        Settings(icon: UIImage(named: "vpn")!, name: "VPN", background: .systemBlue, type: .switchButton)],
         // Second Cells
         [Settings(icon: UIImage(systemName: "bell.badge.fill")!, name: "Notifications", background: .systemRed, type: .none),
         Settings(icon: UIImage(systemName: "speaker.wave.2.fill")!, name: "Sounds & Haptics", background: .systemRed, type: .none),

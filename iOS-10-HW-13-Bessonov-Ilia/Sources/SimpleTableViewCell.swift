@@ -13,19 +13,25 @@ class SimpleTableViewCell: UITableViewCell {
         didSet {
             iconImageView.image = settings?.icon
             nameLabel.text = settings?.name
-            iconImageView.backgroundColor = settings?.background
+            conteinerView.backgroundColor = settings?.background
             accessoryType = .disclosureIndicator
         }
     }
 
     // MARK: - Outlets
 
+    private lazy var conteinerView: UIView = {
+        let view = UIView()
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 5
+        view.contentMode = .scaleAspectFit
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
     private lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.tintColor = .white
-        imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 5
-        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -62,15 +68,20 @@ class SimpleTableViewCell: UITableViewCell {
     // MARK: - Setup
 
     private func setupHierarchy() {
-        contentView.addSubviews([iconImageView, nameLabel])
+        contentView.addSubviews([conteinerView, iconImageView, nameLabel])
     }
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            iconImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 19),
-            iconImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            iconImageView.widthAnchor.constraint(equalToConstant: 27),
-            iconImageView.heightAnchor.constraint(equalToConstant: 27),
+            conteinerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 19),
+            conteinerView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            conteinerView.widthAnchor.constraint(equalToConstant: 27),
+            conteinerView.heightAnchor.constraint(equalToConstant: 27),
+
+            iconImageView.topAnchor.constraint(equalTo: conteinerView.topAnchor),
+            iconImageView.leadingAnchor.constraint(equalTo: conteinerView.leadingAnchor),
+            iconImageView.trailingAnchor.constraint(equalTo: conteinerView.trailingAnchor),
+            iconImageView.bottomAnchor.constraint(equalTo: conteinerView.bottomAnchor),
 
             nameLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 15),
             nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),

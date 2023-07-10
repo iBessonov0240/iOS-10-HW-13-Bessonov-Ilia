@@ -15,18 +15,11 @@ class ViewController: UIViewController {
 
     private lazy var settingsTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.register(SimpleTableViewCell.self, forCellReuseIdentifier: "cell")
-        tableView.register(InfoIDTableViewCell.self, forCellReuseIdentifier: "infoIDCell")
-        tableView.register(SwitchButtonTableViewCell.self, forCellReuseIdentifier: "switchCell")
-        tableView.register(LabelTableViewCell.self, forCellReuseIdentifier: "labelCell")
-        tableView.register(ImageTableViewCell.self, forCellReuseIdentifier: "imageCell")
-        tableView.register(HeaderView.self, forHeaderFooterViewReuseIdentifier: "header")
         tableView.dataSource = self
         tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
-
 
     // MARK: - Lifecycle
 
@@ -35,11 +28,21 @@ class ViewController: UIViewController {
         view.backgroundColor = .white
         title = "Settings"
         navigationController?.navigationBar.prefersLargeTitles = true
+        registerCells()
         setupHierarchy()
         setupLayout()
     }
 
     // MARK: - Setup
+
+    private func registerCells() {
+        settingsTableView.register(SimpleTableViewCell.self, forCellReuseIdentifier: "cell")
+        settingsTableView.register(InfoIDTableViewCell.self, forCellReuseIdentifier: "infoIDCell")
+        settingsTableView.register(SwitchButtonTableViewCell.self, forCellReuseIdentifier: "switchCell")
+        settingsTableView.register(LabelTableViewCell.self, forCellReuseIdentifier: "labelCell")
+        settingsTableView.register(ImageTableViewCell.self, forCellReuseIdentifier: "imageCell")
+        settingsTableView.register(HeaderView.self, forHeaderFooterViewReuseIdentifier: "header")
+    }
 
     private func setupHierarchy() {
         view.addSubview(settingsTableView)
@@ -50,12 +53,9 @@ class ViewController: UIViewController {
             settingsTableView.topAnchor.constraint(equalTo: view.topAnchor),
             settingsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             settingsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            settingsTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            settingsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-
-    // MARK: - Actions
-
 }
 
 // MARK: - UITableViewDataSource
