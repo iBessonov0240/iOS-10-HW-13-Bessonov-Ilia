@@ -9,7 +9,7 @@ import UIKit
 
 class SimpleTableViewCell: UITableViewCell {
 
-    var settings: Settings? {
+    var settings: SettingsModel? {
         didSet {
             iconImageView.image = settings?.icon
             nameLabel.text = settings?.name

@@ -9,7 +9,7 @@ import UIKit
 
 class SwitchButtonTableViewCell: SimpleTableViewCell {
 
-    override var settings: Settings? {
+    override var settings: SettingsModel? {
         didSet {
             accessoryType = .none
         }

@@ -1,15 +1,18 @@
 //
-//  ViewController.swift
+//  SettingsView.swift
 //  iOS-10-HW-13-Bessonov-Ilia
 //
-//  Created by i0240 on 25.06.2023.
+//  Created by i0240 on 10.07.2023.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class SettingsView: UIView {
 
-    private var settings: [[Settings]]?
+    // MARK: - Properties
+
+    private var model: SettingsModel?
+    lazy var delegate: SettingsViewDelegate? = nil
 
     // MARK: - Outlets
 
@@ -21,16 +24,23 @@ class ViewController: UIViewController {
         return tableView
     }()
 
-    // MARK: - Lifecycle
+    // MARK: - Initial
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        title = "Settings"
-        navigationController?.navigationBar.prefersLargeTitles = true
+    init(model: SettingsModel?) {
+        self.model = model
+        super.init(frame: .zero)
+        commonInit()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func commonInit() {
         registerCells()
         setupHierarchy()
         setupLayout()
+        settingsTableView.reloadData()
     }
 
     // MARK: - Setup
@@ -45,33 +55,33 @@ class ViewController: UIViewController {
     }
 
     private func setupHierarchy() {
-        view.addSubview(settingsTableView)
+        addSubview(settingsTableView)
     }
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            settingsTableView.topAnchor.constraint(equalTo: view.topAnchor),
-            settingsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            settingsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            settingsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            settingsTableView.topAnchor.constraint(equalTo: topAnchor),
+            settingsTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            settingsTableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            settingsTableView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
 }
 
 // MARK: - UITableViewDataSource
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+extension SettingsView: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return Settings.settings.count
+        return SettingsModel.settings.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Settings.settings[section].count
+        return SettingsModel.settings[section].count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let item = Settings.settings[indexPath.section][indexPath.row]
+        let item = SettingsModel.settings[indexPath.section][indexPath.row]
 
         switch(item.type) {
         case .infoID:
@@ -98,7 +108,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let item = Settings.settings[indexPath.section][indexPath.row]
+        let item = SettingsModel.settings[indexPath.section][indexPath.row]
 
         switch item.type {
         case .infoID:
@@ -114,19 +124,20 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        switch section {
-        case 0:
-            return 15
-        default:
-            return 30
-        }
+        return section == 0 ? 15 : 30
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Нажата ячейка \(Settings.settings[indexPath.section][indexPath.row].name)")
-        let viewController = DetailViewController()
+        let settings = SettingsModel.settings[indexPath.section][indexPath.row]
+        print("Нажата ячейка \(settings.name)")
+        delegate?.routeToDetails(with: settings)
         tableView.deselectRow(at: indexPath, animated: true)
-        viewController.settings = Settings.settings[indexPath.section][indexPath.row]
-        navigationController?.pushViewController(viewController, animated: true)
     }
 }
+
+ // MARK: - SettingsViewDelegate
+
+protocol SettingsViewDelegate {
+    func routeToDetails(with settings: SettingsModel)
+}
+
