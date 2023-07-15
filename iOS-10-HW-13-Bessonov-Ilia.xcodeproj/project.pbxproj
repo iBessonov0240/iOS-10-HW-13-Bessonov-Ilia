@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA40F5F12A5C0A3500DBD1E1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA40F5F02A5C0A3500DBD1E1 /* SettingsView.swift */; };
 		FA5FBBC82A4A2DE3006FE395 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5FBBC72A4A2DE3006FE395 /* DetailViewController.swift */; };
 		FAB4DFB52A4888860099689B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB4DFB42A4888860099689B /* AppDelegate.swift */; };
 		FAB4DFB72A4888860099689B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB4DFB62A4888860099689B /* SceneDelegate.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA40F5F02A5C0A3500DBD1E1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FA5FBBC72A4A2DE3006FE395 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FAB4DFB12A4888860099689B /* iOS-10-HW-13-Bessonov-Ilia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-10-HW-13-Bessonov-Ilia.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB4DFB42A4888860099689B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +57,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA40F5ED2A5C08B500DBD1E1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FAB4DFD32A48AEA60099689B /* InfoIDTableViewCell.swift */,
+				FAB4DFD52A48AFB60099689B /* SwitchButtonTableViewCell.swift */,
+				FAB4DFD72A48B0160099689B /* LabelTableViewCell.swift */,
+				FAB4DFD92A48B02B0099689B /* ImageTableViewCell.swift */,
+				FAB4DFDB2A49BCE50099689B /* SimpleTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		FA40F5EE2A5C092C00DBD1E1 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FA40F5ED2A5C08B500DBD1E1 /* Cells */,
+				FAB4DFD12A4892F00099689B /* Model.swift */,
+				FAB4DFDD2A49C4E50099689B /* HeaderView.swift */,
+				FA40F5F02A5C0A3500DBD1E1 /* SettingsView.swift */,
+				FAB4DFB82A4888860099689B /* ViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		FA40F5EF2A5C099400DBD1E1 /* SettingsDetails */ = {
+			isa = PBXGroup;
+			children = (
+				FA5FBBC72A4A2DE3006FE395 /* DetailViewController.swift */,
+			);
+			path = SettingsDetails;
+			sourceTree = "<group>";
+		};
 		FAB4DFA82A4888860099689B = {
 			isa = PBXGroup;
 			children = (
@@ -104,15 +138,8 @@
 		FAB4DFCA2A4889470099689B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				FAB4DFB82A4888860099689B /* ViewController.swift */,
-				FAB4DFD32A48AEA60099689B /* InfoIDTableViewCell.swift */,
-				FAB4DFD52A48AFB60099689B /* SwitchButtonTableViewCell.swift */,
-				FAB4DFD72A48B0160099689B /* LabelTableViewCell.swift */,
-				FAB4DFD92A48B02B0099689B /* ImageTableViewCell.swift */,
-				FAB4DFDB2A49BCE50099689B /* SimpleTableViewCell.swift */,
-				FAB4DFD12A4892F00099689B /* Model.swift */,
-				FAB4DFDD2A49C4E50099689B /* HeaderView.swift */,
-				FA5FBBC72A4A2DE3006FE395 /* DetailViewController.swift */,
+				FA40F5EE2A5C092C00DBD1E1 /* Settings */,
+				FA40F5EF2A5C099400DBD1E1 /* SettingsDetails */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -217,6 +244,7 @@
 				FAB4DFB72A4888860099689B /* SceneDelegate.swift in Sources */,
 				FAB4DFD82A48B0160099689B /* LabelTableViewCell.swift in Sources */,
 				FAB4DFD62A48AFB60099689B /* SwitchButtonTableViewCell.swift in Sources */,
+				FA40F5F12A5C0A3500DBD1E1 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

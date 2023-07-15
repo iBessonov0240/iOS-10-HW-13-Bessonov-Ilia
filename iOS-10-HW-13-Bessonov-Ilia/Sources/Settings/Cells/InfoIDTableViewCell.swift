@@ -9,7 +9,7 @@ import UIKit
 
 class InfoIDTableViewCell: UITableViewCell {
 
-    var settings: Settings? {
+    var settings: SettingsModel? {
         didSet {
             nameLabel.text = settings?.name
             nameInImageLabel.text = "I0"

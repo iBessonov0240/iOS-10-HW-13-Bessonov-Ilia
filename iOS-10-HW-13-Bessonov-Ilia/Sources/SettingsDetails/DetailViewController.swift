@@ -9,7 +9,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    var settings: Settings?
+    var settings: SettingsModel?
 
     // MARK: - Outlets
 
@@ -26,7 +26,6 @@ class DetailViewController: UIViewController {
     private lazy var name: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = ""
         label.textColor = .black
         label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.textAlignment = .center
